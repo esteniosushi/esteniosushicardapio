@@ -1,2 +1,77 @@
 # https-seu-usuario.github.io-estenio-sushi-
 estenio sushi e frutos do mar
+salvar no cursor !DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estenio Sushi e Frutos do Mar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        #lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; justify-content: center; align-items: center; cursor: pointer; }
+        #lightbox img { max-width: 90%; max-height: 80%; border: 5px solid #fbbf24; border-radius: 15px; }
+    </style>
+</head>
+<body class="bg-yellow-50 font-sans text-gray-900">
+    <header class="bg-red-700 shadow-xl sticky top-0 z-50 border-b-4 border-yellow-400">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center font-black text-red-700 text-2xl shadow-md">E</div>
+                <h1 class="text-2xl font-black text-white uppercase">Estenio <span class="text-yellow-400">Sushi</span></h1>
+            </div>
+            <a href="https://wa.me/5585994157158" class="bg-yellow-400 text-red-800 px-6 py-2 rounded-full font-black hover:bg-white transition shadow-lg text-sm">PEDIR AGORA</a>
+        </nav>
+    </header>
+
+    <section class="bg-yellow-400 py-16 text-center border-b-8 border-red-700">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl md:text-7xl font-black text-red-800 leading-none uppercase">ESTENIO SUSHI<br><span class="text-white">& FRUTOS DO MAR</span></h2>
+            <p class="mt-6 text-xl text-red-900 font-medium italic">O melhor sabor oriental de Fortaleza direto na sua mesa.</p>
+        </div>
+    </section>
+
+    <section id="galeria" class="py-16 bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="text-3xl font-black text-red-700 uppercase mb-10">Nossas Especialidades</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <div class="group overflow-hidden rounded-2xl shadow-lg border-4 border-yellow-400 cursor-pointer">
+                    <img src="fotos/sushi1.jpg" class="w-full h-72 object-cover gallery-item" onerror="this.src='https://via.placeholder.com/600x400?text=Sua+Foto+Aqui'">
+                </div>
+                <div class="group overflow-hidden rounded-2xl shadow-lg border-4 border-yellow-400 cursor-pointer">
+                    <img src="fotos/sushi2.jpg" class="w-full h-72 object-cover gallery-item" onerror="this.src='https://via.placeholder.com/600x400?text=Sua+Foto+Aqui'">
+                </div>
+                <div class="group overflow-hidden rounded-2xl shadow-lg border-4 border-yellow-400 cursor-pointer">
+                    <img src="fotos/sushi3.jpg" class="w-full h-72 object-cover gallery-item" onerror="this.src='https://via.placeholder.com/600x400?text=Sua+Foto+Aqui'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-red-700 border-t-8 border-yellow-400 text-white">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-12">
+            <div>
+                <h4 class="text-4xl font-black text-yellow-400 uppercase">Fale Conosco</h4>
+                <p class="mt-4 text-xl">📞 (85) 99415-7158</p>
+                <p>📍 Fortaleza - Ceará</p>
+            </div>
+            <div class="bg-yellow-400 p-8 rounded-3xl shadow-2xl flex flex-col items-center border-4 border-white">
+                <div id="qrcode" class="p-2 bg-white rounded-lg"></div>
+                <p class="mt-4 font-black text-red-800 text-xl uppercase">Estenio Sushi</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="lightbox" onclick="this.style.display='none'"><img id="lightbox-img" src=""></div>
+
+    <script>
+        new QRCode(document.getElementById("qrcode"), {
+            text: "https://wa.me/5585994157158?text=Olá!%20Gostaria%20de%20ver%20o%20cardápio.", 
+            width: 180, height: 180, colorDark : "#991B1B", colorLight : "#ffffff"
+        });
+        document.querySelectorAll('.gallery-item').forEach(img => {
+            img.onclick = () => { document.getElementById('lightbox-img').src = img.src; document.getElementById('lightbox').style.display = 'flex'; }
+        });
+    </script>
+</body>
+</html>
